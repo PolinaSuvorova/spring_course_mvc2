@@ -11,7 +11,16 @@
     Surname <form:input path="surname"/>
     <br>
     Salary <form:input path="salary"/>
-    <br><br>
+    <br>
+    Department <form:select path="department">
+    <form:options items="${employee.departments}" />
+
+</form:select>
+    <br>
+    With car bread do you want?
+    <form:radiobuttons items="${employee.carBrands}"  path="carBrand"/>
+    <br>
+    <br>
     <input type="submit" name="Ok">
 </form:form>
 </body>
