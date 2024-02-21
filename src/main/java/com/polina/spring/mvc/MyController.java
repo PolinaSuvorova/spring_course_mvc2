@@ -22,7 +22,8 @@ public class MyController {
     @RequestMapping("/showDetails")
     public String showEmployeeDetails(
             @ModelAttribute("employee") Employee emp) {
-
+        String name = emp.getName();
+        emp.setName("Mr " + name);
         return "show-emp-details-view";
     }
 }
