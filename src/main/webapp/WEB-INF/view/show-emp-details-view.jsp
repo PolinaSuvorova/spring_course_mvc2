@@ -16,6 +16,8 @@ Your car: ${employee.carBrand}
 <br>
 Your car: ${employee.phone}
 <br>
+Your car: ${employee.email}
+<br>
 Languages
 <uL>
     <c:forEach var="lang" items="${employee.languages}">

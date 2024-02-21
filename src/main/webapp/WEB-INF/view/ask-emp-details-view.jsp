@@ -15,6 +15,8 @@
     <br>
     Pone number <form:input path="phone"/><form:errors path="phone" />
     <br>
+    Email number <form:input path="email"/><form:errors path="email" />
+    <br>
     Department <form:select path="department">
     <form:options items="${employee.departments}" />
 

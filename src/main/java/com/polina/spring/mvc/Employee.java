@@ -1,5 +1,7 @@
 package com.polina.spring.mvc;
 
+import com.polina.spring.mvc.validation.CheckEmail;
+
 import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +26,9 @@ public class Employee {
     @Pattern(regexp = "\\d[3]-\\d[2]-\\d[2]", message = "please use pattern XXX-XX-XX")
     private String phone;
 
+    @CheckEmail(value = "abc.com", message="must end to abc.com")
+    private String email;
+
     private Map<String, String> languagesList;
 
     public Employee() {
@@ -43,6 +48,14 @@ public class Employee {
 
     public Map<String, String> getLanguagesList() {
         return languagesList;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {
