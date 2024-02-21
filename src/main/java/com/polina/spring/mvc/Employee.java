@@ -1,11 +1,18 @@
 package com.polina.spring.mvc;
 
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
+    @Size(min = 2, message = "name must be two symbols")
     private String name;
+
+    @NotBlank(message = "surname is required field")
     private String surname;
+
+    @Min(value = 500, message = "mast be greater than 499")
+    @Max(value = 1500, message = "mast be less than 1501")
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -13,6 +20,9 @@ public class Employee {
     private Map<String, String> carBrands;
 
     private String[] languages;
+
+    @Pattern(regexp = "\\d[3]-\\d[2]-\\d[2]", message = "please use pattern XXX-XX-XX")
+    private String phone;
 
     private Map<String, String> languagesList;
 
@@ -22,17 +32,25 @@ public class Employee {
         departments.put("Sales", "Sales");
         departments.put("HR", "Human Resources");
         carBrands = new HashMap<>();
-        carBrands.put("BMV","BMV");
-        carBrands.put("Audi","Audi");
-        carBrands.put("Opel","Opel");
+        carBrands.put("BMV", "BMV");
+        carBrands.put("Audi", "Audi");
+        carBrands.put("Opel", "Opel");
         languagesList = new HashMap<>();
-        languagesList.put("EN","English");
-        languagesList.put("KZ","Kazahstan");
-        languagesList.put("ESP","Espanol");
+        languagesList.put("EN", "English");
+        languagesList.put("KZ", "Kazahstan");
+        languagesList.put("ESP", "Espanol");
     }
 
     public Map<String, String> getLanguagesList() {
         return languagesList;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setLanguagesList(Map<String, String> languagesList) {
